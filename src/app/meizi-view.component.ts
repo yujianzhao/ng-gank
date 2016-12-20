@@ -1,6 +1,5 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {GankService} from './services/gank.service';
-import * as jQuery from 'jquery';
 
 @Component({
   selector: 'meizi-view',
@@ -10,9 +9,6 @@ import * as jQuery from 'jquery';
     }
     img {
       margin: 2px;
-    }
-    .frame {
-      margin: 15px;
     }
   `],
   template: `

@@ -1,6 +1,5 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {GankService} from './services/gank.service';
-import * as jQuery from 'jquery';
 
 @Component({
   selector: 'daily-view',
