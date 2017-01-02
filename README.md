@@ -6,11 +6,22 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 ## TODO
 - [x] Toast Notification
+- [ ] Better Angular loading  (replace 'angular2-busy')
+- [ ] Menu Icons
 - [ ] Archiving and caching posts using PouchDB
 - [ ] Scroll down refreshing (for new posts) and load cached posts
 - [ ] Photo viewer module
 - [ ] Github Auth, comments, and likes (this will need a back-end storage and might as well integrate with PouchDB)
-- [ ] multi-language support?
+- [ ] Multi-language support?
+
+## Test
+Haven't done anything about Unit Test and Eng-to-end Test.
+
+##Screenshots
+![Screenshot 1](/sc_1.png)
+![Screenshot 2](/sc_2.png)
+![Screenshot 2](/sc_3.png)
+![Screenshot 2](/sc_4.png)
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
