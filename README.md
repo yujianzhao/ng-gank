@@ -1,6 +1,16 @@
 # NgGank
 
+用 Angular 2 做的一个 gank.io 的简易 Web 前端
+
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.19-3.
+
+## TODO
+- Toast Notification
+- Archiving and caching posts using PouchDB
+- Scroll down refreshing (for new posts) and load cached posts
+- Photo viewer module
+- Github Auth, comments, and likes (this will need a back-end storage and might as well integrate with PouchDB)
+
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

@@ -1,6 +1,5 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
-import {GankService} from './services/gank.service';
-import * as PouchDB from 'pouchdb-browser';
+import {PouchDBService} from './services/pouchdb.service';
 
 @Component({
   selector: 'archive-view',
@@ -8,15 +7,18 @@ import * as PouchDB from 'pouchdb-browser';
  
   `],
   template: `
+
+
     <section class="demo-contents">
 
     </section>
   `
 })
+
 export class ArchiveViewComponent implements AfterViewInit, OnInit {
 
-  constructor(private gankService: GankService) {
-    var db = new PouchDB('my_database');
+  constructor(private pouchDBService: PouchDBService) {
+    // pouchDBService.test();
   }
 
   ngOnInit() {

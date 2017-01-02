@@ -20,11 +20,9 @@ import {Component, AfterViewInit, OnInit} from '@angular/core';
         </div>
       </div>
       <div class="ui floating message">
-        <p>用 Angular 2 做的一个 gank.io 的 Web 前端。 前端采用了 PouchDB 作为数据库来储存 Archive 的信息；大部分 GUI 采用了semantic-ui。
-        如果觉得此项目对你有帮助，欢迎打赏~ 谢谢~ </p>
+        <p>用 Angular 2 做的一个 gank.io 的 Web 前端。 前端采用了 PouchDB 作为数据库来储存 Archive 的信息；一部分 GUI 采用了semantic-ui。</p>
         <p>This is a simple app built on Angular 2. All data come from <a href="http://gank.io/api">gank.io API</a>, 
-        a place where people share some open source projects and other interesting stuffs. I used PouchDB to store archive info on the front-end. 
-        If you find this project helpful, feel free to buy me a coffee! :) Thanks.</p>
+        a place where people share some open source projects and other interesting stuffs. I used PouchDB to store archive info on the front-end.</p>
       </div>
     </section>
   `

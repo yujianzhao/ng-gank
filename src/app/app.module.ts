@@ -19,6 +19,7 @@ import {PostingViewComponent} from './posting-view.component';
 import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 import {AboutViewComponent} from './about-view.component';
 import {appRoutes} from './app.routes';
+import {PouchDBService} from './services/pouchdb.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import {appRoutes} from './app.routes';
     InfiniteScrollModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [GankService],
+  providers: [GankService, PouchDBService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

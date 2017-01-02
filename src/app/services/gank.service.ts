@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {Observable} from 'rxjs';
-import 'rxjs/Rx';;
+import 'rxjs/Rx';
 
 @Injectable()
 export class GankService {
