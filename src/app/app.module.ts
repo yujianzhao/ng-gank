@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -20,6 +20,9 @@ import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 import {AboutViewComponent} from './about-view.component';
 import {appRoutes} from './app.routes';
 import {PouchDBService} from './services/pouchdb.service';
+import {ToastrModule} from 'toastr-ng2';
+import {PostFormComponent} from './forms/post-form.component';
+import {BusyModule} from 'angular2-busy';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import {PouchDBService} from './services/pouchdb.service';
     ArchiveViewComponent,
     PostingViewComponent,
     AboutViewComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PostFormComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,10 @@ import {PouchDBService} from './services/pouchdb.service';
     HttpModule,
     SidebarModule,
     InfiniteScrollModule,
+    ToastrModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    BusyModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [GankService, PouchDBService],

@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {Observable} from 'rxjs';
 import 'rxjs/Rx';
+import {PostForm} from '../forms/post-form.component';
 
 @Injectable()
 export class GankService {
@@ -60,11 +61,27 @@ export class GankService {
     return this.get(Gank.url.api.random.all + num);
   }
 
-  getDayHistory(): Observable<string[]> {
-    return this.http.get(Gank.url.api.dayHistory).map((res: Response) => {
-      let body = res.json();
-      return body.results || [];
-    }).catch(this.handleError);
+  getDayHistory(): Observable<Object[]> {
+    return this.get(Gank.url.api.dayHistory);
+  }
+
+  postData(form: PostForm): Promise<Object> {
+    let data = {
+      url: form.url,
+      desc: form.description,
+      who: form.webid,
+      type: form.type,
+      debug: form.debug
+    };
+    return this.post(
+      Gank.url.api.add2gank,
+      Object.keys(data).map((key) => {
+        return encodeURIComponent(key) + "=" + encodeURIComponent(data[key]);
+      }).join('&'),
+      {
+        headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' })
+      }
+    );
   }
 
   private get(url): Observable<Object[]> {
@@ -74,10 +91,10 @@ export class GankService {
     }).catch(this.handleError);
   }
 
-  private post(url, data): Promise<Object> {
-    return this.http.post(url, data).toPromise().then((resp: any) => {
-      return resp._body;
-    }).catch(this.handleError);
+  private post(url, data, options?): Promise<Object> {
+    return this.http.post(url, data, options).toPromise().then((resp: any) => {
+      return JSON.parse(resp._body);
+    }).catch(error => console.error(error));
   }
 
   /* TODO: log error to server client log */
