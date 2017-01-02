@@ -20,8 +20,8 @@ Haven't done anything about Unit Test and Eng-to-end Test.
 ##Screenshots
 ![Screenshot 1](/sc_1.png)
 ![Screenshot 2](/sc_2.png)
-![Screenshot 2](/sc_3.png)
-![Screenshot 2](/sc_4.png)
+![Screenshot 3](/sc_3.png)
+![Screenshot 4](/sc_4.png)
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
