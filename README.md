@@ -6,8 +6,8 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 ## TODO
 - [x] Toast Notification
+- [x] Menu Icons
 - [ ] Better Angular loading  (replace 'angular2-busy')
-- [ ] Menu Icons
 - [ ] Archiving and caching posts using PouchDB
 - [ ] Scroll down refreshing (for new posts) and load cached posts
 - [ ] Photo viewer module

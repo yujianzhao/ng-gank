@@ -20,7 +20,9 @@ import {Router, NavigationEnd} from '@angular/router';
       [autoFocus]="_autoFocus"
       [sidebarClass]="'demo-sidebar'"
       [ariaLabel]="'app-side-menu'">
-      <div routerLink='{{item.link}}' routerLinkActive="route-active" (click)="direct($event)" *ngFor="let item of menuItems">{{item.data.title}}</div>
+      <div routerLink='{{item.link}}' routerLinkActive="route-active" (click)="direct($event)" *ngFor="let item of menuItems">
+        <img style="width:15px;height:auto;" src="../assets/icons/{{item.data.title}}.svg"> {{item.data.title}}
+      </div>
     </ng2-sidebar>
     <header class="demo-header">
       <button (click)="toggleSidebar()" class="demo-header__toggle">Toggle sidebar</button>
