@@ -72,7 +72,7 @@ export class PostFormComponent implements OnInit{
 
 export interface PostForm  {
   url: string,
-  webid: string,
+  webid: string,cd
   type: string,
   description: string,
   debug: boolean
