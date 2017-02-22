@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {GankService} from './services/gank.service';
-import {SidebarModule} from 'ng2-sidebar';
+import {SidebarModule } from 'ng-sidebar';
 import {SideMenuComponent} from './side-menu.component';
 import {RouterModule} from '@angular/router';
 import {DailyViewComponent} from './daily-view.component';

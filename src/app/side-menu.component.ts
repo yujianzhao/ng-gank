@@ -1,5 +1,4 @@
 import {Component, OnInit, AfterViewInit, Input} from '@angular/core';
-import {SIDEBAR_POSITION} from 'ng2-sidebar';
 import {routes, RouteObj} from './app.routes';
 import {Router, NavigationEnd} from '@angular/router';
 
@@ -9,21 +8,19 @@ import {Router, NavigationEnd} from '@angular/router';
 
   `],
   template: `
-    <ng2-sidebar
-      [(open)]="_open"
-      [defaultStyles]="true"
-      [position]="_POSITIONS[_positionNum]"
-      [closeOnClickOutside]="_closeOnClickOutside"
-      [showOverlay]="_showOverlay"
-      [animate]="_animate"
-      [trapFocus]="_trapFocus"
-      [autoFocus]="_autoFocus"
+    <ng-sidebar
+      [(opened)]="open"
+      [position]="position"
+      [closeOnClickOutside]="closeOnClickOutside"
+      [animate]="animate"
+      [trapFocus]="trapFocus"
+      [autoFocus]="autoFocus"
       [sidebarClass]="'demo-sidebar'"
       [ariaLabel]="'app-side-menu'">
       <div routerLink='{{item.link}}' routerLinkActive="route-active" (click)="direct($event)" *ngFor="let item of menuItems">
         <img style="width:15px;height:auto;" src="../assets/icons/{{item.data.title}}.svg"> {{item.data.title}}
       </div>
-    </ng2-sidebar>
+    </ng-sidebar>
     <header class="demo-header">
       <button (click)="toggleSidebar()" class="demo-header__toggle">Toggle sidebar</button>
       <h3>NgGank - {{title}}</h3>
@@ -32,14 +29,12 @@ import {Router, NavigationEnd} from '@angular/router';
 })
 export class SideMenuComponent implements AfterViewInit, OnInit{
   public title: string;
-  private _open: boolean = false;
-  private _positionNum: number = 0;
-  private _closeOnClickOutside: boolean = true;
-  private _showOverlay: boolean = true;
-  private _animate: boolean = true;
-  private _trapFocus: boolean = true;
-  private _autoFocus: boolean = true;
-  private _POSITIONS = [SIDEBAR_POSITION.Left, SIDEBAR_POSITION.Right, SIDEBAR_POSITION.Top, SIDEBAR_POSITION.Bottom];
+  private open: boolean = false;
+  private position: string = 'start';
+  private closeOnClickOutside: boolean = true;
+  private animate: boolean = true;
+  private trapFocus: boolean = true;
+  private autoFocus: boolean = true;
 
   private menuItems: RouteObj[] = [];
 
@@ -76,7 +71,7 @@ export class SideMenuComponent implements AfterViewInit, OnInit{
   }
 
   private toggleSidebar() {
-    this._open = !this._open;
+    this.open = !this.open;
   }
 
   private direct(event) {
