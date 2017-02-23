@@ -4,12 +4,13 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve",
-    "reinstall": "rimraf node_modules && npm install && npm prune",
+    "start": "ng serve --proxy-config proxy.conf.json",
+    "reinstall": "rimraf node_modules && npm install",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "build": "ng build --prod"
   },
   "private": true,
   "dependencies": {
