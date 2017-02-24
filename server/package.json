@@ -4,8 +4,8 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "tsc && node ../dist/bin/www",
-    "serve": "tsc && node ../dist/bin/www prd",
+    "start": "tsc && node dist/bin/www",
+    "serve": "tsc && node dist/bin/www prd",
     "reinstall": "rimraf node_modules && npm install"
   },
   "private": true,

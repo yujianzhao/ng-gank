@@ -4,6 +4,7 @@
 /semantic
 
 # compiled output
+/server/dist
 /dist
 /tmp
 
