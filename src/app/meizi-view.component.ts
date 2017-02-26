@@ -1,5 +1,6 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {GankService} from './services/gank.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'meizi-view',
@@ -22,6 +23,7 @@ import {GankService} from './services/gank.service';
           <img style="width:256px;height:auto;" src="{{item.url}}"/>
         </a>
       </template>
+      <div [ngBusy]="busy"></div>
     </section>
   `
 })
@@ -29,6 +31,8 @@ export class MeiziViewComponent implements AfterViewInit, OnInit {
   private items: any[] = [];
   private currentPage = 1;
   private end = false;
+  private busy: Subscription; 
+
   constructor(private gankService: GankService) {
 
   }
@@ -37,7 +41,7 @@ export class MeiziViewComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    this.nextPage(0);
+    this.busy = this.nextPage(0);
   }
 
   onScroll () {
@@ -45,14 +49,14 @@ export class MeiziViewComponent implements AfterViewInit, OnInit {
       this.nextPage(1);
   }
 
-  nextPage(increment: number) {
+  nextPage(increment: number): Subscription {
     this.currentPage += increment;
-    this.loadPhotos(() => {
+    return this.loadPhotos(() => {
       this.currentPage -= increment;
     });
   }
-  loadPhotos(exception: Function) {
-    this.gankService.getPhotos(12, this.currentPage).subscribe(results => {
+  loadPhotos(exception: Function): Subscription {
+    return this.gankService.getPhotos(12, this.currentPage).subscribe(results => {
       if (results.length === 0)
         this.end = true;
       this.items = this.items.concat(results);

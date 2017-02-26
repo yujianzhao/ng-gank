@@ -1,5 +1,6 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {GankService} from './services/gank.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'history-view',
@@ -24,6 +25,7 @@ import {GankService} from './services/gank.service';
           </template>
         </a>    
       </div>
+      <div [ngBusy]="busy"></div>
     </section>
   `
 })
@@ -32,6 +34,8 @@ export class HistoryViewComponent implements AfterViewInit, OnInit {
   private currentDayIndex = 0;
   private dates: string[];
   private end = false;
+  private busy: Subscription; 
+
   constructor(private gankService: GankService) {
 
   }
@@ -43,7 +47,7 @@ export class HistoryViewComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {
     this.gankService.getDates().then(respDates => {
       this.dates = respDates;
-      this.next(0);
+      this.busy = this.next(0);
     });
   }
 
@@ -52,15 +56,15 @@ export class HistoryViewComponent implements AfterViewInit, OnInit {
       this.next(1);
   }
 
-  next(increment: number) {
+  next(increment: number): Subscription {
     this.currentDayIndex += increment;
-    this.loadAndroidArticles(() => {
+    return this.loadHistoryArticles(() => {
       this.currentDayIndex -= increment;
     });
   }
 
-  loadAndroidArticles(exception: Function) {
-    this.gankService.getByDay(this.dates[this.currentDayIndex].replace(/-/g, '/')).subscribe(resp => {
+  loadHistoryArticles(exception: Function): Subscription {
+    return this.gankService.getByDay(this.dates[this.currentDayIndex].replace(/-/g, '/')).subscribe(resp => {
       let results = resp['results'];
       if (results.length === 0) {
         this.end = true;

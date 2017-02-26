@@ -1,5 +1,6 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {GankService} from './services/gank.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'android-view',
@@ -19,6 +20,7 @@ import {GankService} from './services/gank.service';
           <p>{{item.desc}}</p>
         </a>    
       </div>
+      <div [ngBusy]="busy"></div>
     </section>
   `
 })
@@ -26,6 +28,8 @@ export class AndroidViewComponent implements AfterViewInit, OnInit {
   private items: any[] = [];
   private currentPage = 1;
   private end = false;
+  private busy: Subscription; 
+
   constructor(private gankService: GankService) {
 
   }
@@ -35,7 +39,7 @@ export class AndroidViewComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    this.nextPage(0);
+    this.busy = this.nextPage(0);
   }
 
   onScroll () {
@@ -43,15 +47,15 @@ export class AndroidViewComponent implements AfterViewInit, OnInit {
       this.nextPage(1);
   }
 
-  nextPage(increment: number) {
+  nextPage(increment: number): Subscription {
     this.currentPage += increment;
-    this.loadAndroidArticles(() => {
+    return this.loadAndroidArticles(() => {
       this.currentPage -= increment;
     });
   }
 
-  loadAndroidArticles(exception: Function) {
-    this.gankService.getAndroidArticles(16, this.currentPage).subscribe(results => {
+  loadAndroidArticles(exception: Function): Subscription{
+    return this.gankService.getAndroidArticles(16, this.currentPage).subscribe(results => {
       if (results.length === 0)
         this.end = true;
       this.items = this.items.concat(results);

@@ -1,5 +1,6 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {GankService} from './services/gank.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'daily-view',
@@ -24,6 +25,7 @@ import {GankService} from './services/gank.service';
         </div>
       </div>
       <b>Source Published: {{ mostRecentDate | date: 'yyyy/MM/dd HH:mm'}}</b>
+      <div [ngBusy]="[busy1, busy2]"></div>
     </section>
   `
 })
@@ -31,14 +33,17 @@ export class DailyViewComponent implements AfterViewInit, OnInit {
   private dailyData: any;
   private category: string[];
   private mostRecentDate: string;
+  private busy1: Promise<any>;
+  private busy2: Subscription;  
+
   constructor(private gankService: GankService) {
 
   }
 
   ngOnInit() {
-    this.gankService.getDates().then(days => {
+    this.busy1 = this.gankService.getDates().then(days => {
       this.mostRecentDate = days[0];
-      this.gankService.getByDay(days[0].replace(/-/g, '/')).subscribe(resp => {
+      this.busy2 = this.gankService.getByDay(days[0].replace(/-/g, '/')).subscribe(resp => {
         this.category = resp['category'];
         this.dailyData = resp['results'];
       }, error => {
