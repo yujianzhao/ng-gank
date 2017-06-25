@@ -7,11 +7,10 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 ## TODO
 - [x] Toast Notification
 - [x] Menu Icons
-- [ ] Custom loading module (replace angular2-busy)
-- [ ] Archiving and caching posts using PouchDB
+- [ ] Archiving posts using PouchDB
 - [ ] Scroll down refreshing (for new posts) and load cached posts
 - [ ] Photo viewer module
-- [ ] Github Auth, comments, and likes (this will need a back-end storage and might as well integrate with PouchDB)
+- [ ] Github Auth
 - [ ] Multi-language support?
 
 ## Test

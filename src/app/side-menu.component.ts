@@ -1,5 +1,5 @@
 import {Component, OnInit, AfterViewInit, Input} from '@angular/core';
-import {routes, RouteObj} from './app.routes';
+import { appRoutes } from './app.module';
 import {Router, NavigationEnd} from '@angular/router';
 
 @Component({
@@ -17,7 +17,7 @@ import {Router, NavigationEnd} from '@angular/router';
       [autoFocus]="autoFocus"
       [sidebarClass]="'demo-sidebar'"
       [ariaLabel]="'app-side-menu'">
-      <div routerLink='{{item.link}}' routerLinkActive="route-active" (click)="direct($event)" *ngFor="let item of menuItems">
+      <div routerLink='{{item.path}}' routerLinkActive="route-active" (click)="direct($event)" *ngFor="let item of menuItems">
         <img style="width:15px;height:auto;" src="../assets/icons/{{item.data.title}}.svg"> {{item.data.title}}
       </div>
     </ng-sidebar>
@@ -36,7 +36,7 @@ export class SideMenuComponent implements AfterViewInit, OnInit{
   private trapFocus: boolean = true;
   private autoFocus: boolean = true;
 
-  private menuItems: RouteObj[] = [];
+  private menuItems = [];
 
   constructor(router:Router) {
     router.events.subscribe(event => {
@@ -58,9 +58,9 @@ export class SideMenuComponent implements AfterViewInit, OnInit{
   }
 
   ngOnInit() {
-    Object.keys(routes).map(r => {
-      let routeObj = routes[r];
-      if (routeObj.path !== '' && routeObj.path !== '**') {
+    Object.keys(appRoutes).map(r => {
+      let routeObj = appRoutes[r];
+      if (routeObj.path && routeObj.data.menu) {
         this.menuItems.push(routeObj);
       }
     });
