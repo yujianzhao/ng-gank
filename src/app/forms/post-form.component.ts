@@ -36,7 +36,6 @@ import {GankService} from '../services/gank.service';
         <textarea rows="6" cols="40" placeholder="描述你的干货" formControlName="description"></textarea>
       </div>
       <button class="ui button" tabindex="0" type="submit">Submit</button>
-      <div [ngBusy]="busy"></div>
     </form>
   `
 })

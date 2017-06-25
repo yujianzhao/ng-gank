@@ -20,7 +20,6 @@ import {Subscription} from 'rxjs/Subscription';
           <p>{{item.desc}}</p>
         </a>    
       </div>
-      <div [ngBusy]="busy"></div>
     </section>
   `
 })

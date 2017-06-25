@@ -25,7 +25,6 @@ import {Subscription} from 'rxjs/Subscription';
         </div>
       </div>
       <b>Source Published: {{ mostRecentDate | date: 'yyyy/MM/dd HH:mm'}}</b>
-      <div [ngBusy]="[busy1, busy2]"></div>
     </section>
   `
 })

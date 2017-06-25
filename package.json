@@ -23,7 +23,6 @@
     "@angular/platform-browser": "~4.2.4",
     "@angular/platform-browser-dynamic": "~4.2.4",
     "@angular/router": "~4.2.4",
-    "angular2-busy": "^2.0.4",
     "angular2-infinite-scroll": "^0.3.4",
     "core-js": "^2.4.1",
     "jquery": "^3.1.1",

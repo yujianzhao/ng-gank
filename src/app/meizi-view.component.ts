@@ -23,7 +23,6 @@ import {Subscription} from 'rxjs/Subscription';
           <img style="width:256px;height:auto;" src="{{item.url}}"/>
         </a>
       </template>
-      <div [ngBusy]="busy"></div>
     </section>
   `
 })

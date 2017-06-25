@@ -22,7 +22,6 @@ import {AboutViewComponent} from './about-view.component';
 import {PouchDBService} from './services/pouchdb.service';
 import {ToastrModule} from 'toastr-ng2';
 import {PostFormComponent} from './forms/post-form.component';
-import {BusyModule} from 'angular2-busy';
 
 export const appRoutes: Routes = [
   { path: 'daily', component: DailyViewComponent, data: { title: 'Daily', menu: true }},
@@ -62,7 +61,6 @@ export const appRoutes: Routes = [
     ToastrModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    BusyModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule
   ],

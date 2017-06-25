@@ -25,7 +25,6 @@ import {Subscription} from 'rxjs/Subscription';
           </template>
         </a>    
       </div>
-      <div [ngBusy]="busy"></div>
     </section>
   `
 })
