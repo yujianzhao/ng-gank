@@ -13,16 +13,16 @@ import {Subscription} from 'rxjs/Subscription';
     }
   `],
   template: `
-    <section class="demo-contents" infinite-scroll
+    <section class="page-contents" infinite-scroll
             [infiniteScrollDistance]="1"
             [infiniteScrollThrottle]="500"
             (scrolled)="onScroll()">
       <h1>Meizi</h1>
-      <template ngFor let-item [ngForOf]="items">
+      <ng-template ngFor let-item [ngForOf]="items">
         <a href="{{item.url}}">
           <img style="width:256px;height:auto;" src="{{item.url}}"/>
         </a>
-      </template>
+      </ng-template>
     </section>
   `
 })

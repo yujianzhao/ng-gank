@@ -15,14 +15,22 @@ import {Router, NavigationEnd} from '@angular/router';
       [animate]="animate"
       [trapFocus]="trapFocus"
       [autoFocus]="autoFocus"
-      [sidebarClass]="'demo-sidebar'"
+      [sidebarClass]="'sidemenu-sidebar'"
       [ariaLabel]="'app-side-menu'">
+
+      <div routerLink='' (click)="direct($event)"><img src="./assets/icons/apple-touch-icon-60x60.png" alt="logo"></div>
+
       <div routerLink='{{item.path}}' routerLinkActive="route-active" (click)="direct($event)" *ngFor="let item of menuItems">
-        <img style="width:15px;height:auto;" src="../assets/icons/{{item.data.title}}.svg"> {{item.data.title}}
+        <img style="width:15px;height:auto;color:white;" src="../assets/icons/{{item.data.title}}.svg"> {{item.data.title}}
       </div>
+
+      <span style="position: absolute; bottom: 0; margin: 2px;">
+        <a href="https://jbosoft.com/">JingboSoft</a>            
+        <p>{{version}}</p>
+      </span>
     </ng-sidebar>
-    <header class="demo-header">
-      <button (click)="toggleSidebar()" class="demo-header__toggle">Toggle sidebar</button>
+    <header class="sidemenu-header">
+      <button (click)="toggleSidebar()" class="sidemenu-header-toggle">Toggle sidebar</button>
       <h3>NgGank - {{title}}</h3>
     </header>
   `

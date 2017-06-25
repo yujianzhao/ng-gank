@@ -7,7 +7,7 @@ import {PouchDBService} from './services/pouchdb.service';
  
   `],
   template: `
-    <section class="demo-contents">
+    <section class="page-contents">
 
     </section>
   `

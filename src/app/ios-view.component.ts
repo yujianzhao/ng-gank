@@ -8,7 +8,7 @@ import {Subscription} from 'rxjs/Subscription';
  
   `],
   template: `
-    <section class="demo-contents" infinite-scroll
+    <section class="page-contents" infinite-scroll
             [infiniteScrollDistance]="1"
             [infiniteScrollThrottle]="500"
             (scrolled)="onScroll()">

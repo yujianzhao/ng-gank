@@ -8,7 +8,7 @@ import {Subscription} from 'rxjs/Subscription';
  
   `],
   template: `
-    <section class="demo-contents" infinite-scroll
+    <section class="page-contents" infinite-scroll
             [infiniteScrollDistance]="1"
             [infiniteScrollThrottle]="500"
             (scrolled)="onScroll()">
@@ -17,12 +17,12 @@ import {Subscription} from 'rxjs/Subscription';
         <br>
         <a href="{{item.url}}">
           <h3>{{item.type}} - {{item.who }} - {{item.createdAt | date: 'yyyy/MM/dd HH:mm'}}</h3>
-          <template [ngIf]="item.type === '\u798f\u5229'">
+          <ng-template [ngIf]="item.type === '\u798f\u5229'">
             <img style="width:256px;height:auto;" src="{{item.url}}"/>
-          </template>
-          <template [ngIf]="item.type !== '\u798f\u5229'">
+          </ng-template>
+          <ng-template [ngIf]="item.type !== '\u798f\u5229'">
             <p>{{item.desc}}</p>
-          </template>
+          </ng-template>
         </a>    
       </div>
     </section>

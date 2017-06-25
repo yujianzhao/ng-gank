@@ -6,7 +6,7 @@ import {Component, AfterViewInit, OnInit} from '@angular/core';
  
   `],
   template: `
-    <section class="demo-contents">
+    <section class="page-contents">
       <h1>About</h1>
       <div class="ui horizontal list">
         <div class="item">
@@ -20,9 +20,9 @@ import {Component, AfterViewInit, OnInit} from '@angular/core';
         </div>
       </div>
       <div class="ui floating message">
-        <p><a href="https://github.com/yujianzhao/ng-gank">ng-gank</a> 用 Angular 2 做的一个 gank.io 的 Web 前端。 前端采用了 PouchDB 作为数据库来储存 Archive 的信息；一部分 GUI 采用了semantic-ui。</p>
+        <p><a href="https://github.com/yujianzhao/ng-gank">ng-gank</a> 用 Angular 2 做的一个 gank.io 的 Web 前端。</p>
         <p><a href="https://github.com/yujianzhao/ng-gank">ng-gank</a> is a simple app built on Angular 2. All data come from <a href="http://gank.io/api">gank.io API</a>, 
-        a place where people share some open source projects and other interesting stuffs. I used PouchDB to store archive info on the front-end.</p>
+         a web service for submitting and retrieving daily curated tech articles and blogs.</p>
       </div>
     </section>
   `

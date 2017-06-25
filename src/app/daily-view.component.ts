@@ -8,19 +8,19 @@ import {Subscription} from 'rxjs/Subscription';
  
   `],
   template: `
-    <section class="demo-contents" >
+    <section class="page-contents" >
       <div *ngFor="let sec of category">
         <h1>{{sec}}</h1>
         <div *ngFor="let item of dailyData[sec]">
           <br>
           <a href="{{item.url}}">
             <h3>{{item.who }} - {{item.createdAt | date: 'yyyy/MM/dd HH:mm'}}</h3>
-            <template [ngIf]="item.type === '\u798f\u5229'">
+            <ng-template [ngIf]="item.type === '\u798f\u5229'">
               <img style="width:256px;height:auto;" src="{{item.url}}"/>
-            </template>
-            <template [ngIf]="item.type !== '\u798f\u5229'">
+            </ng-template>
+            <ng-template [ngIf]="item.type !== '\u798f\u5229'">
               <p>{{item.desc}}</p>
-            </template>
+            </ng-template>
           </a>    
         </div>
       </div>

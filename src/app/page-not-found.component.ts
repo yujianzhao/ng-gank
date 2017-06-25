@@ -6,8 +6,7 @@ import {Component} from '@angular/core';
  
   `],
   template: `
-    <side-menu></side-menu>
-    <section class="demo-contents">
+    <section class="page-contents">
       <h1>Oops! Page Not Found 404</h1>
     </section>
   `

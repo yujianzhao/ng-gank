@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
  
   `],
   template: `
-    <section class="demo-contents">
+    <section class="page-contents">
       <h1>提交干货</h1>
       <post-form></post-form>
     </section>
