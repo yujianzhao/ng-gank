@@ -11,7 +11,7 @@ import {Component, AfterViewInit, OnInit} from '@angular/core';
       <div class="ui horizontal list">
         <div class="item">
           <a href="https://github.com/yujianzhao">
-            <img class="ui mini circular image" src="../assets/images/aaron.png">
+            <img class="ui mini circular image" src="./assets/images/aaron.png">
             <div class="content">
               <div class="ui sub header">yujianzhao</div>
               Developer

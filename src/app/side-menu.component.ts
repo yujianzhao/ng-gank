@@ -22,7 +22,7 @@ import {environment} from '../environments/environment';
       <div routerLink='' (click)="direct($event)"><img src="./assets/icons/apple-touch-icon-60x60.png" alt="logo"></div>
 
       <div routerLink='{{item.path}}' routerLinkActive="route-active" (click)="direct($event)" *ngFor="let item of menuItems">
-        <img style="width:15px;height:auto;color:white;" src="../assets/icons/{{item.data.title}}.svg"> {{item.data.title}}
+        <img style="width:15px;height:auto;color:white;" src="./assets/icons/{{item.data.title}}.svg"> {{item.data.title}}
       </div>
 
       <span style="position: absolute; bottom: 0; margin: 2px;">
