@@ -5,8 +5,8 @@
 This project was generated with [angular-cli](https://github.com/angular/angular-cli).
 
 ## TODO
-- [ ] Remodel side menu
-- [ ] Material 2 loading
+- [X] Remodel side menu
+- [X] Material 2 loading
 - [ ] Photo viewer module
 
 ##Screenshots

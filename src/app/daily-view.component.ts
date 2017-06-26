@@ -25,6 +25,7 @@ import {Subscription} from 'rxjs/Subscription';
         </div>
       </div>
       <b>Source Published: {{ mostRecentDate | date: 'yyyy/MM/dd HH:mm'}}</b>
+      <ngloading [loads]="[busy1]"></ngloading>
     </section>
   `
 })

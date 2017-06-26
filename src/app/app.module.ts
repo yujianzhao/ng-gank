@@ -22,6 +22,9 @@ import {AboutViewComponent} from './about-view.component';
 import {PouchDBService} from './services/pouchdb.service';
 import {ToastrModule} from 'toastr-ng2';
 import {PostFormComponent} from './forms/post-form.component';
+import { MaterialModule } from './mat.module';
+import { NgLoadingComponent } from './ngloading.component';
+
 
 export const appRoutes: Routes = [
   { path: 'daily', component: DailyViewComponent, data: { title: 'Daily', menu: true }},
@@ -50,7 +53,8 @@ export const appRoutes: Routes = [
     PostingViewComponent,
     AboutViewComponent,
     PageNotFoundComponent,
-    PostFormComponent
+    PostFormComponent,
+    NgLoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,8 @@ export const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [GankService, PouchDBService],
   bootstrap: [AppComponent]

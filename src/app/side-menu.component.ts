@@ -1,6 +1,7 @@
 import {Component, OnInit, AfterViewInit, Input} from '@angular/core';
 import { appRoutes } from './app.module';
 import {Router, NavigationEnd} from '@angular/router';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'side-menu',
@@ -36,6 +37,7 @@ import {Router, NavigationEnd} from '@angular/router';
   `
 })
 export class SideMenuComponent implements AfterViewInit, OnInit{
+  version = environment.version;
   public title: string;
   private open: boolean = false;
   private position: string = 'start';
