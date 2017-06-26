@@ -24,10 +24,10 @@ import {Subscription} from 'rxjs/Subscription';
   `
 })
 export class AndroidViewComponent implements AfterViewInit, OnInit {
-  private items: any[] = [];
-  private currentPage = 1;
-  private end = false;
-  private busy: Subscription; 
+  public items: any[] = [];
+  public currentPage = 1;
+  public end = false;
+  public busy: Subscription; 
 
   constructor(private gankService: GankService) {
 

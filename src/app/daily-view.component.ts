@@ -30,11 +30,11 @@ import {Subscription} from 'rxjs/Subscription';
   `
 })
 export class DailyViewComponent implements AfterViewInit, OnInit {
-  private dailyData: any;
-  private category: string[];
-  private mostRecentDate: string;
-  private busy1: Promise<any>;
-  private busy2: Subscription;  
+  public dailyData: any;
+  public category: string[];
+  public mostRecentDate: string;
+  public busy1: Promise<any>;
+  public busy2: Subscription;  
 
   constructor(private gankService: GankService) {
 

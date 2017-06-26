@@ -20,8 +20,8 @@ import {Component, AfterViewInit, OnInit} from '@angular/core';
         </div>
       </div>
       <div class="ui floating message">
-        <p><a href="https://github.com/yujianzhao/ng-gank">ng-gank</a> 用 Angular 2 做的一个 gank.io 的 Web 前端。</p>
-        <p><a href="https://github.com/yujianzhao/ng-gank">ng-gank</a> is a simple app built on Angular 2. All data come from <a href="http://gank.io/api">gank.io API</a>, 
+        <p><a href="https://github.com/yujianzhao/ng-gank">ng-gank</a> 用 Angular 做的一个 gank.io 的 Web 前端。</p>
+        <p><a href="https://github.com/yujianzhao/ng-gank">ng-gank</a> is a simple app built on Angular. All data come from <a href="http://gank.io/api">gank.io API</a>, 
          a web service for submitting and retrieving daily curated tech articles and blogs.</p>
       </div>
     </section>

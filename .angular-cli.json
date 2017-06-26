@@ -20,6 +20,7 @@
       "styles": [
         "style/styles.scss",
         "style/semantic.css",
+        "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
         "../node_modules/toastr-ng2/toastr.css"
       ],
       "scripts": [],

@@ -39,14 +39,14 @@ import {environment} from '../environments/environment';
 export class SideMenuComponent implements AfterViewInit, OnInit{
   version = environment.version;
   public title: string;
-  private open: boolean = false;
-  private position: string = 'start';
-  private closeOnClickOutside: boolean = true;
-  private animate: boolean = true;
-  private trapFocus: boolean = true;
-  private autoFocus: boolean = true;
+  public open: boolean = false;
+  public position: string = 'start';
+  public closeOnClickOutside: boolean = true;
+  public animate: boolean = true;
+  public trapFocus: boolean = true;
+  public autoFocus: boolean = true;
 
-  private menuItems = [];
+  public menuItems = [];
 
   constructor(router:Router) {
     router.events.subscribe(event => {
@@ -80,11 +80,11 @@ export class SideMenuComponent implements AfterViewInit, OnInit{
 
   }
 
-  private toggleSidebar() {
+  public toggleSidebar() {
     this.open = !this.open;
   }
 
-  private direct(event) {
+  public direct(event) {
     this.title = event.target.innerText;
     this.toggleSidebar();
   }

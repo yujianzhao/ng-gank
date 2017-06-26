@@ -29,11 +29,11 @@ import {Subscription} from 'rxjs/Subscription';
   `
 })
 export class HistoryViewComponent implements AfterViewInit, OnInit {
-  private items: any = []
-  private currentDayIndex = 0;
-  private dates: string[];
-  private end = false;
-  private busy: Subscription; 
+  public items: any = []
+  public currentDayIndex = 0;
+  public dates: string[];
+  public end = false;
+  public busy: Subscription; 
 
   constructor(private gankService: GankService) {
 

@@ -1,0 +1,9 @@
+{
+	"apps": [{
+		"name": "nggank",
+		"script": "./dist/bin/www.js",
+		"env_production": {
+			"NODE_ENV": "production"
+		}
+	}]
+}
