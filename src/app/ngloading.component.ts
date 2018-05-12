@@ -24,17 +24,17 @@ import {Component, AfterViewInit, OnInit, Input, OnChanges, SimpleChanges} from 
   template: `
     <div class="ngloading" [ngClass]="{hidden: complete}">
       <div class="ngloading-content">
-        <md-progress-spinner
+        <mat-progress-spinner
           [color]="'warn'"
           [mode]="'indeterminate'"
-          [value]="50"></md-progress-spinner>
+          [value]="50"></mat-progress-spinner>
       </div>
     </div>
   `
 })
 export class NgLoadingComponent implements AfterViewInit, OnInit, OnChanges {
   @Input() loads: Promise<any>[];
-  complete: boolean = true;
+  complete = true;
 
   constructor() {
   }
@@ -58,8 +58,8 @@ export class NgLoadingComponent implements AfterViewInit, OnInit, OnChanges {
           this.complete = true;
         })
       } else {
-        this.loads.reduce((acc, cur) => { 
-          return (acc.then(r=>true) && cur.then(r=>true));
+        this.loads.reduce((acc, cur) => {
+          return (acc.then(r => true) && cur.then(r => true));
         }).then((done) => {
           this.complete = done;
         })

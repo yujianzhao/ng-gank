@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
-import 'rxjs/add/operator/toPromise';
 import {Observable} from 'rxjs';
-import 'rxjs/Rx';
 import {PostForm} from '../forms/post-form.component';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class GankService {
@@ -17,7 +18,10 @@ export class GankService {
       return this.http.get(Gank.url.api.dayHistory).toPromise().then((resp: any) => {
         this.Dates = JSON.parse(resp._body).results;
         return this.Dates;
-      }).catch(error => console.error(error));
+      }).catch(error => {
+        console.error(error)
+        return []
+      });
     } else {
       return Promise.resolve(this.Dates);
     }
@@ -50,14 +54,14 @@ export class GankService {
     return this.get(Gank.url.api.random.fuli + num);
   }
 
-  getRandomAndroidArticles(num: number): Observable<Object[]>{
+  getRandomAndroidArticles(num: number): Observable<Object[]> {
     return this.get(Gank.url.api.random.Android + num);
   }
   getRandomiOSArticles(num: number): Observable<Object[]> {
     return this.get(Gank.url.api.random.iOS + num);
   }
 
-  getRandomAll(num: number): Observable<Object[]>{
+  getRandomAll(num: number): Observable<Object[]> {
     return this.get(Gank.url.api.random.all + num);
   }
 
@@ -76,7 +80,7 @@ export class GankService {
     return this.post(
       Gank.url.api.add2gank,
       Object.keys(data).map((key) => {
-        return encodeURIComponent(key) + "=" + encodeURIComponent(data[key]);
+        return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
       }).join('&'),
       {
         headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -112,7 +116,7 @@ export class GankService {
 }
 
 export module Gank {
-  export var gankio = {
+  export let gankio = {
     api: 'http://gank.io/api/',
     Android: 'data/Android/',
     fuli: 'data/%E7%A6%8F%E5%88%A9/',
@@ -120,7 +124,7 @@ export module Gank {
     all: 'data/all/'
   };
 
-  export var url = {
+  export let url = {
     api: {
       data: {
         Android: gankio.api + gankio.Android,

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {environment} from '../../environments/environment';
 import {CustomValidators} from './validators.utils';
-import {ToastrService} from 'toastr-ng2';
 import {GankService} from '../services/gank.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'post-form',
@@ -40,11 +40,11 @@ import {GankService} from '../services/gank.service';
   `
 })
 
-export class PostFormComponent implements OnInit{
+export class PostFormComponent implements OnInit {
   types: string[] = ['Android', 'iOS', '休息视频', '福利', '拓展资源', '前端', '瞎推荐', 'App'];
   form: FormGroup
   busy: Promise<any>;
-  constructor(private builder: FormBuilder, private gankService: GankService, private toastrService: ToastrService) {}
+  constructor(private builder: FormBuilder, private gankService: GankService, private snackBar: MatSnackBar) {}
   ngOnInit() {
     this.form = this.builder.group({
       url: ['', [Validators.required, CustomValidators.url]],
@@ -56,13 +56,13 @@ export class PostFormComponent implements OnInit{
   }
   onSubmit({ value, valid }: { value: PostForm, valid: boolean }) {
     if (!valid) {
-      this.toastrService.error('信息格式不对', '表格错误');
+      this.snackBar.open('信息格式不对', 'OK');
     } else {
       this.busy = this.gankService.postData(value).then((resp: any) => {
         if (resp.error) {
-          this.toastrService.error(resp.msg, '提交错误');
+          this.snackBar.open(resp.msg, 'OK');
         } else {
-          this.toastrService.success('干货提交成功! 又是美好的一天呢，少年！', '提交完成');
+          this.snackBar.open('干货提交成功! 又是美好的一天呢，少年！', 'OK');
         }
       });
     }
@@ -71,7 +71,7 @@ export class PostFormComponent implements OnInit{
 
 export interface PostForm  {
   url: string,
-  webid: string,cd
+  webid: string,
   type: string,
   description: string,
   debug: boolean

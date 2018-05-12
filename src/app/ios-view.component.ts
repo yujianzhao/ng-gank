@@ -1,6 +1,6 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {GankService} from './services/gank.service';
-import {Subscription} from 'rxjs/Subscription';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'ios-view',
@@ -42,8 +42,9 @@ export class IOSViewComponent implements AfterViewInit, OnInit {
   }
 
   onScroll () {
-    if (!this.end)
+    if (!this.end) {
       this.nextPage(1);
+    }
   }
 
   nextPage(increment: number): Subscription {
@@ -55,8 +56,9 @@ export class IOSViewComponent implements AfterViewInit, OnInit {
 
   loadiOSArticles(exception: Function): Subscription {
     return this.gankService.getiOSArticles(16, this.currentPage).subscribe(results => {
-      if (results.length === 0)
+      if (results.length === 0) {
         this.end = true;
+      }
       this.items = this.items.concat(results);
     }, error =>  {
       console.error(error);

@@ -19,26 +19,10 @@ import {ArchiveViewComponent} from './archive-view.component';
 import {PostingViewComponent} from './posting-view.component';
 import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 import {AboutViewComponent} from './about-view.component';
-import {PouchDBService} from './services/pouchdb.service';
-import {ToastrModule} from 'toastr-ng2';
 import {PostFormComponent} from './forms/post-form.component';
 import { MaterialModule } from './mat.module';
 import { NgLoadingComponent } from './ngloading.component';
-
-
-export const appRoutes: Routes = [
-  { path: 'daily', component: DailyViewComponent, data: { title: 'Daily', menu: true }},
-  { path: 'android', component: AndroidViewComponent, data: { title: 'Android', menu: true }},  
-  { path: 'ios', component: IOSViewComponent, data: { title: 'iOS', menu: true }},
-  { path: 'meizi', component: MeiziViewComponent, data: { title: 'Meizi', menu: false }},
-  { path: 'history', component: HistoryViewComponent, data: { title: 'History', menu: true }},
-  { path: 'archive', component: ArchiveViewComponent, data: { title: 'Archive', menu: false }},
-  { path: 'posting', component: PostingViewComponent, data: { title: 'Posting', menu: true }},
-  { path: 'about', component: AboutViewComponent, data: { title: 'About', menu: true }},
-  { path: '', component: DailyViewComponent, data: { title: 'Home', menu: false }},  
-  { path: '**', component: PageNotFoundComponent, data: { title: 'Not Found', menu: false }}
-]
-
+import { appRoutes } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -62,14 +46,13 @@ export const appRoutes: Routes = [
     HttpModule,
     SidebarModule,
     InfiniteScrollModule,
-    ToastrModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [GankService, PouchDBService],
+  providers: [GankService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

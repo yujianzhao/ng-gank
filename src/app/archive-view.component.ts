@@ -1,10 +1,9 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
-import {PouchDBService} from './services/pouchdb.service';
 
 @Component({
   selector: 'archive-view',
   styles: [`
- 
+
   `],
   template: `
     <section class="page-contents">
@@ -15,8 +14,7 @@ import {PouchDBService} from './services/pouchdb.service';
 
 export class ArchiveViewComponent implements AfterViewInit, OnInit {
 
-  constructor(private pouchDBService: PouchDBService) {
-    // pouchDBService.test();
+  constructor() {
   }
 
   ngOnInit() {

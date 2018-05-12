@@ -1,5 +1,5 @@
 import {Component, OnInit, AfterViewInit, Input} from '@angular/core';
-import { appRoutes } from './app.module';
+import { appRoutes } from './app.routes';
 import {Router, NavigationEnd} from '@angular/router';
 import {environment} from '../environments/environment';
 
@@ -26,7 +26,7 @@ import {environment} from '../environments/environment';
       </div>
 
       <span style="position: absolute; bottom: 0; margin: 2px;">
-        <a href="https://jbosoft.com/">JingboSoft</a>            
+        <a href="https://jbosoft.com/">JingboSoft</a>
         <p>{{version}}</p>
       </span>
     </ng-sidebar>
@@ -36,32 +36,32 @@ import {environment} from '../environments/environment';
     </header>
   `
 })
-export class SideMenuComponent implements AfterViewInit, OnInit{
+export class SideMenuComponent implements AfterViewInit, OnInit {
   version = environment.version;
   public title: string;
-  public open: boolean = false;
-  public position: string = 'start';
-  public closeOnClickOutside: boolean = true;
-  public animate: boolean = true;
-  public trapFocus: boolean = true;
-  public autoFocus: boolean = true;
+  public open = false;
+  public position = 'start';
+  public closeOnClickOutside = true;
+  public animate = true;
+  public trapFocus = true;
+  public autoFocus = true;
 
   public menuItems = [];
 
-  constructor(router:Router) {
+  constructor(router: Router) {
     router.events.subscribe(event => {
-      if(event instanceof NavigationEnd) {
+      if (event instanceof NavigationEnd) {
         this.title = this.getTitle(router.routerState, router.routerState.root).join('-');
       }
     });
   }
 
   getTitle(state, parent) {
-    var data = [];
-    if(parent && parent.snapshot.data && parent.snapshot.data.title) {
+    let data = [];
+    if (parent && parent.snapshot.data && parent.snapshot.data.title) {
       data.push(parent.snapshot.data.title);
     }
-    if(state && parent) {
+    if (state && parent) {
       data.push(... this.getTitle(state, state.firstChild(parent)));
     }
     return data;

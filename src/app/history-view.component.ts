@@ -1,6 +1,6 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {GankService} from './services/gank.service';
-import {Subscription} from 'rxjs/Subscription';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'history-view',
@@ -51,8 +51,9 @@ export class HistoryViewComponent implements AfterViewInit, OnInit {
   }
 
   onScroll () {
-    if (!this.end)
+    if (!this.end) {
       this.next(1);
+    }
   }
 
   next(increment: number): Subscription {

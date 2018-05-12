@@ -1,14 +1,14 @@
 import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {GankService} from './services/gank.service';
-import {Subscription} from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'daily-view',
   styles: [`
- 
+
   `],
   template: `
-    <section class="page-contents" >
+    <section class="page-contents">
       <div *ngFor="let sec of category">
         <h1>{{sec}}</h1>
         <div *ngFor="let item of dailyData[sec]">
@@ -21,7 +21,7 @@ import {Subscription} from 'rxjs/Subscription';
             <ng-template [ngIf]="item.type !== '\u798f\u5229'">
               <p>{{item.desc}}</p>
             </ng-template>
-          </a>    
+          </a>
         </div>
       </div>
       <b>Source Published: {{ mostRecentDate | date: 'yyyy/MM/dd HH:mm'}}</b>
@@ -34,7 +34,7 @@ export class DailyViewComponent implements AfterViewInit, OnInit {
   public category: string[];
   public mostRecentDate: string;
   public busy1: Promise<any>;
-  public busy2: Subscription;  
+  public busy2: Subscription;
 
   constructor(private gankService: GankService) {
 
